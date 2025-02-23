@@ -11,8 +11,9 @@ const LandingPage = () => {
         {
             title: "QR Scanner",
             description: "Escaner de códigos QR rápido y eficiente",
-            image: "/not-available-photo.jpg",
-            link: QR_SCANNER_URL
+            image: "/qr-code-icon.png",
+            link: QR_SCANNER_URL,
+            imageSize: { width: 437, height: 192 }
         },
         { title: "Proyecto 2", description: "Descripción del proyecto 2", image: "/600x300.png" },
         { title: "Proyecto 3", description: "Descripción del proyecto 3", image: "/waiting.png" },
@@ -38,10 +39,11 @@ const LandingPage = () => {
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
                     className="m-4 p-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors"
                 >
-                    {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                    {isMenuOpen ? <X size={24}/> : <Menu size={24}/>}
                 </button>
 
-                <nav className={`fixed right-0 top-0 h-screen w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+                <nav
+                    className={`fixed right-0 top-0 h-screen w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
                     <div className="flex flex-col pt-16 p-4 space-y-4">
                         <button
                             onClick={() => scrollToSection('quienes-somos')}
@@ -134,16 +136,25 @@ const LandingPage = () => {
                                 className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow cursor-pointer"
                                 onClick={() => project.link && window.open(project.link, '_blank')}
                             >
-                                <img
-                                    src={project.image}
-                                    alt={project.title}
-                                    className="w-full h-48 object-cover"
-                                />
+                                <div className="relative" style={{
+                                    height: project.imageSize ? `${project.imageSize.height}px` : '348px'
+                                }}>
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className="absolute inset-0 w-full h-full object-contain"
+                                        style={{
+                                            maxWidth: project.imageSize ? `${project.imageSize.width}px` : '100%',
+                                            margin: '0 auto'
+                                        }}
+                                    />
+                                </div>
                                 <div className="p-6">
                                     <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                                     <p className="text-gray-600">{project.description}</p>
                                     {project.link && (
-                                        <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
+                                        <button
+                                            className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
                                             Abrir Proyecto
                                         </button>
                                     )}
