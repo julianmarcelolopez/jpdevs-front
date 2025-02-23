@@ -4,8 +4,16 @@ import { Menu, X } from 'lucide-react';
 const LandingPage = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+    // Agrega la URL de tu QR Scanner desplegado en AWS Amplify
+    const QR_SCANNER_URL = 'https://main.d8eci5asqo38h.amplifyapp.com/'; // Reemplaza con tu URL real
+
     const projects = [
-        { title: "Proyecto 1", description: "Descripción del proyecto 1", image: "/not-available-photo.jpg" },
+        {
+            title: "QR Scanner",
+            description: "Escaner de códigos QR rápido y eficiente",
+            image: "/not-available-photo.jpg",
+            link: QR_SCANNER_URL
+        },
         { title: "Proyecto 2", description: "Descripción del proyecto 2", image: "/600x300.png" },
         { title: "Proyecto 3", description: "Descripción del proyecto 3", image: "/waiting.png" },
         { title: "Proyecto 4", description: "Descripción del proyecto 4", image: "/photo.jpg" }
@@ -14,6 +22,11 @@ const LandingPage = () => {
     const scrollToSection = (sectionId: string) => {
         const element = document.getElementById(sectionId);
         element?.scrollIntoView({ behavior: 'smooth' });
+        setIsMenuOpen(false);
+    };
+
+    const openQRScanner = () => {
+        window.open(QR_SCANNER_URL, '_blank');
         setIsMenuOpen(false);
     };
 
@@ -47,6 +60,12 @@ const LandingPage = () => {
                             className="text-left p-2 hover:bg-gray-100 rounded"
                         >
                             Nuestros Proyectos
+                        </button>
+                        <button
+                            onClick={openQRScanner}
+                            className="text-left p-2 bg-blue-500 text-white hover:bg-blue-600 rounded"
+                        >
+                            QR Scanner
                         </button>
                     </div>
                 </nav>
@@ -110,7 +129,11 @@ const LandingPage = () => {
                     <h2 className="text-4xl font-bold mb-12 text-center">Nuestros Proyectos</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {projects.map((project, index) => (
-                            <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                            <div
+                                key={index}
+                                className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow cursor-pointer"
+                                onClick={() => project.link && window.open(project.link, '_blank')}
+                            >
                                 <img
                                     src={project.image}
                                     alt={project.title}
@@ -119,6 +142,11 @@ const LandingPage = () => {
                                 <div className="p-6">
                                     <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                                     <p className="text-gray-600">{project.description}</p>
+                                    {project.link && (
+                                        <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
+                                            Abrir Proyecto
+                                        </button>
+                                    )}
                                 </div>
                             </div>
                         ))}
