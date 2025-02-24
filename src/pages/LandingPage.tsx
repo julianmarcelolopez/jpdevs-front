@@ -5,7 +5,8 @@ const LandingPage = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     // Agrega la URL de tu QR Scanner desplegado en AWS Amplify
-    const QR_SCANNER_URL = 'https://main.d8eci5asqo38h.amplifyapp.com/'; // Reemplaza con tu URL real
+    const QR_SCANNER_URL = 'https://main.d8eci5asqo38h.amplifyapp.com/';
+    const MAIL_SENDER_URL = 'https://main.d13c67jud9spm1.amplifyapp.com/';
 
     const projects = [
         {
@@ -15,7 +16,13 @@ const LandingPage = () => {
             link: QR_SCANNER_URL,
             imageSize: { width: 437, height: 192 }
         },
-        { title: "Proyecto 2", description: "Descripción del proyecto 2", image: "/600x300.png" },
+        {
+            title: "Mail Sender",
+            description: "Administrador de envio de correos",
+            image: "/mail-sender.png",
+            link: MAIL_SENDER_URL,
+            imageSize: { width: 437, height: 192 }
+        },
         { title: "Proyecto 3", description: "Descripción del proyecto 3", image: "/waiting.png" },
         { title: "Proyecto 4", description: "Descripción del proyecto 4", image: "/photo.jpg" }
     ];
