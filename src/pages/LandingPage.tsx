@@ -5,8 +5,9 @@ const LandingPage = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     // Agrega la URL de tu QR Scanner desplegado en AWS Amplify
-    const QR_SCANNER_URL = 'https://main.d8eci5asqo38h.amplifyapp.com/';
-    const MAIL_SENDER_URL = 'https://main.d13c67jud9spm1.amplifyapp.com/';
+    const QR_SCANNER_URL = process.env.REACT_APP_QR_SCANNER_URL || 'https://main.d8eci5asqo38h.amplifyapp.com/';
+    const MAIL_SENDER_URL = process.env.REACT_APP_MAIL_SENDER_URL || 'https://main.d13c67jud9spm1.amplifyapp.com/';
+
 
     const projects = [
         {

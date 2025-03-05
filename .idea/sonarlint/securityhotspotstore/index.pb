@@ -29,3 +29,5 @@ index.html,f\6\f6013a00b362253c64368d6eebc50ea2131754e2
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 ;
 amplify.yml,5\c\5cdb5ca4f7b57cfc012837b8e58144e0c79f4c14
+4
+.env,3\c\3c84dcdc6bbe3d7817c49dcdc327b926fea1808a
