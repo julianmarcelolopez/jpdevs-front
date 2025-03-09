@@ -12,3 +12,5 @@ dist/
 
 # Archivos de SonarLint
 .idea/sonarlint/
+.idea/sonarlint/issuestore/
+.idea/sonarlint/securityhotspotstore/
