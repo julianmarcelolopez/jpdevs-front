@@ -39,6 +39,11 @@ const LandingPage = () => {
         setIsMenuOpen(false);
     };
 
+    const openMailSender = () => {
+        window.open(MAIL_SENDER_URL, '_blank');
+        setIsMenuOpen(false);
+    };
+
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Menú lateral */}
@@ -76,6 +81,12 @@ const LandingPage = () => {
                             className="text-left p-2 bg-blue-500 text-white hover:bg-blue-600 rounded"
                         >
                             QR Scanner
+                        </button>
+                        <button
+                            onClick={openMailSender}
+                            className="text-left p-2 bg-blue-500 text-white hover:bg-blue-600 rounded"
+                        >
+                            Mail Sender
                         </button>
                     </div>
                 </nav>
