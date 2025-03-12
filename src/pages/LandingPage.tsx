@@ -24,8 +24,20 @@ const LandingPage = () => {
             link: MAIL_SENDER_URL,
             imageSize: { width: 437, height: 192 }
         },
-        { title: "Proyecto 3", description: "Descripción del proyecto 3", image: "/waiting.png" },
-        { title: "Proyecto 4", description: "Descripción del proyecto 4", image: "/photo.jpg" }
+        {
+            title: "QR Scanner",
+            description: "Escaner de códigos QR rápido y eficiente",
+            image: "/qr-code-icon.png",
+            link: QR_SCANNER_URL,
+            imageSize: { width: 437, height: 192 }
+        },
+        {
+            title: "Mail Sender",
+            description: "Administrador de envio de correos",
+            image: "/mail-sender.png",
+            link: MAIL_SENDER_URL,
+            imageSize: { width: 437, height: 192 }
+        }
     ];
 
     const scrollToSection = (sectionId: string) => {
